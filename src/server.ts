@@ -1,32 +1,32 @@
-import Fastify from "fastify";
-import app from "./app";
-import closeWithGrace from "close-with-grace";
-import { Value } from "@sinclair/typebox/value";
-import { envSchema } from "./plugins/config";
+import Fastify from 'fastify';
+import app from './app';
+import closeWithGrace from 'close-with-grace';
+import { Value } from '@sinclair/typebox/value';
+import { envSchema } from './plugins/config';
 
 if (!Value.Check(envSchema, process.env)) {
   throw new Error(JSON.stringify([...Value.Errors(envSchema, process.env)]));
 }
 const fastify = Fastify({
   logger: {
-    level: "info",
+    level: 'info',
     redact: [
-      "headers.authorization",
-      "token",
-      "jwt",
-      "key",
-      "api_key",
-      "apiKey",
-      "password",
-      "secret",
-      "api_secret",
-      "apiSecret",
-      "card_number",
-      "cardNumber",
-      "credit_card",
-      "creditCard",
-      "credit_card_number",
-      "creditCardNumber",
+      'headers.authorization',
+      'token',
+      'jwt',
+      'key',
+      'api_key',
+      'apiKey',
+      'password',
+      'secret',
+      'api_secret',
+      'apiSecret',
+      'card_number',
+      'cardNumber',
+      'credit_card',
+      'creditCard',
+      'credit_card_number',
+      'creditCardNumber',
     ],
   },
 });
@@ -42,7 +42,7 @@ const closeListeners = closeWithGrace({ delay: 500 }, async function ({ err }) {
   await fastify.close();
 });
 
-fastify.addHook("onClose", closeListeners.uninstall);
+fastify.addHook('onClose', closeListeners.uninstall);
 
 fastify.listen(
   {

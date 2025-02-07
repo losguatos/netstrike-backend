@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import fp from "fastify-plugin";
+ 
+import fp from 'fastify-plugin';
 
-declare module "fastify" {
+declare module 'fastify' {
   export interface FastifyInstance {
     exampleService: {
       exampleServiceFunction: () => string;
@@ -10,9 +10,9 @@ declare module "fastify" {
 }
 
 export const exampleService = fp(async function (fastify) {
-  fastify.decorate("exampleService", {
+  fastify.decorate('exampleService', {
     exampleServiceFunction: () => {
-      return "exampleServiceFunction response";
+      return 'exampleServiceFunction response';
     },
   });
 });

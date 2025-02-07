@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Modular service for Netstrike",
   "main": "app.ts",
+  "type": "module",
   "directories": {
     "test": "test"
   },
@@ -27,7 +28,15 @@
     "typescript": "^5.7.3"
   },
   "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "@typescript-eslint/eslint-plugin": "^8.23.0",
+    "@typescript-eslint/parser": "^8.23.0",
     "concurrently": "^9.1.2",
-    "fastify-tsconfig": "^3.0.0"
+    "eslint": "^9.19.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-react": "^7.37.4",
+    "fastify-tsconfig": "^3.0.0",
+    "globals": "^15.14.0",
+    "typescript-eslint": "^8.23.0"
   }
 }

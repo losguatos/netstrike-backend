@@ -1,9 +1,9 @@
-import fp from "fastify-plugin";
+import fp from 'fastify-plugin';
 
 export default fp(async (fastify) => {
-  const status = "ok";
+  const status = 'ok';
 
-  fastify.get("/ready", {}, async function () {
+  fastify.get('/ready', {}, async function () {
     return status;
   });
 });
