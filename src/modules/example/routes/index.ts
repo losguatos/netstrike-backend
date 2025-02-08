@@ -1,8 +1,8 @@
-import { FastifyPluginAsyncTypebox } from "@fastify/type-provider-typebox";
-import { Exception } from "../../../types/Exception";
+import { FastifyPluginAsyncTypebox } from '@fastify/type-provider-typebox';
+import { Exception } from '../../../types/Exception';
 
 const example: FastifyPluginAsyncTypebox = async (fastify): Promise<void> => {
-  fastify.get("/", {}, async function (request, reply) {
+  fastify.get('/', {}, async function (request, reply) {
     try {
       return {
         isThisExampleRoute: true,
@@ -11,7 +11,7 @@ const example: FastifyPluginAsyncTypebox = async (fastify): Promise<void> => {
     } catch (err: unknown) {
       const error = err as Exception;
       const errorCode = error.code || 500;
-      request.log.error({ err, errorCode }, "Error in route");
+      request.log.error({ err, errorCode }, 'Error in route');
     }
   });
 };

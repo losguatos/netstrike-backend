@@ -1,9 +1,9 @@
-import { join } from "path";
-import AutoLoad, { AutoloadPluginOptions } from "@fastify/autoload";
-import { FastifyInstance, FastifyPluginAsync } from "fastify";
-import fp from "fastify-plugin";
-import config, { envSchema } from "./plugins/config";
-import { Static } from "@fastify/type-provider-typebox";
+import { join } from 'path';
+import AutoLoad, { AutoloadPluginOptions } from '@fastify/autoload';
+import { FastifyInstance, FastifyPluginAsync } from 'fastify';
+import fp from 'fastify-plugin';
+import config, { envSchema } from './plugins/config';
+import { Static } from '@fastify/type-provider-typebox';
 
 export type AppOptions = {
   metrics?: boolean;
@@ -22,16 +22,16 @@ const app: FastifyPluginAsync<AppOptions> = fp(
     // those should be support plugins that are reused
     // through your application
     void fastify.register(AutoLoad, {
-      dir: join(__dirname, "plugins"),
+      dir: join(__dirname, 'plugins'),
       ignoreFilter: (path) =>
-        path.endsWith("config.js") || path.endsWith("config.ts"),
+        path.endsWith('config.js') || path.endsWith('config.ts'),
       options: Object.assign(options, opts),
     });
 
     // This loads all services defined in services
     // define your service files there
     void fastify.register(AutoLoad, {
-      dir: join(__dirname, "services"),
+      dir: join(__dirname, 'services'),
       encapsulate: false,
       options: Object.assign(options, opts),
     });
@@ -39,7 +39,7 @@ const app: FastifyPluginAsync<AppOptions> = fp(
     // This loads all plugins defined in modules
     // define your modules and routes in one of these
     void fastify.register(AutoLoad, {
-      dir: join(__dirname, "modules"),
+      dir: join(__dirname, 'modules'),
       encapsulate: false,
       maxDepth: 1,
       options: Object.assign(options, opts),
